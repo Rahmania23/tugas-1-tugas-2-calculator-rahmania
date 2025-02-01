@@ -1,45 +1,165 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-    <title>Calculator</title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belajar Menggambar dan Melukis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #f0f8ff; /* Background warna biru muda */
+        }
+        h1, h2 {
+            color: #333;
+        }
+        p {
+            line-height: 1.6;
+        }
+        #canvas-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .content-section {
+            margin-bottom: 40px;
+            background-color: #ffe4b5; /* Background kuning lembut */
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .info-box {
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.9em;
+            color: #666;
+            background-color: #2f4f4f; /* Footer dengan latar belakang hijau tua */
+            color: white;
+            padding: 20px;
+        }
+    </style>
 </head>
 <body>
-    <div id="calc">
-        <div id="content">
-            <form>
-                <div id="output">
-                    <input type="text" id="res">
-                </div>
-                <div class="btn">
-                    <input type="button" value='C' onclick="Clear()" id="clear">
-                    <input type="button" value='⌫' onclick="Back()" id="backspace">
-                    <input type="button" value='%' onclick="Solve('%')">
-                    <input type="button" value='/' onclick="Solve('/')">
-                    <br>
-                    <input type="button" value='7' onclick="Solve('7')">
-                    <input type="button" value='8' onclick="Solve('8')">
-                    <input type="button" value='9' onclick="Solve('9')">
-                    <input type="button" value='x' onclick="Solve('x')">
-                    <br>
-                    <input type="button" value='4' onclick="Solve('4')">
-                    <input type="button" value='5' onclick="Solve('5')">
-                    <input type="button" value='6' onclick="Solve('6')">
-                    <input type="button" value='-' onclick="Solve('-')">
-                    <br>
-                    <input type="button" value='1' onclick="Solve('1')">
-                    <input type="button" value='2' onclick="Solve('2')">
-                    <input type="button" value='3' onclick="Solve('3')">
-                    <input type="button" value='+' onclick="Solve('+')">
-                    <br>
-                    <input type="button" value='00' onclick="Solve('00')">
-                    <input type="button" value='0' onclick="Solve('0')">
-                    <input type="button" value='.' onclick="Solve('.')">
-                    <input type="button" value='=' onclick="Result()">
-                </div>
-            </form>
+
+    <h1>Belajar Menggambar dan Melukis</h1>
+
+    <div class="content-section">
+        <h2>Pengantar</h2>
+        <p>Menggambar dan melukis adalah kegiatan yang sangat menyenangkan dan kreatif. Setiap orang bisa melakukannya, dari pemula hingga profesional. Di dalam website ini, kamu akan menemukan berbagai teknik menggambar dan melukis serta cara menggunakan alat dan media yang tepat.</p>
+    </div>
+
+    <div class="content-section">
+        <h2>Alat untuk Menggambar</h2>
+        <ul>
+            <li>Pensil</li>
+            <li>Cat Air</li>
+            <li>Cat Minyak</li>
+            <li>Spidol</li>
+            <li>Kuas</li>
+        </ul>
+    </div>
+
+    <div class="content-section">
+        <h2>Teknik Dasar Melukis</h2>
+        <div class="info-box">
+            <h3>1. Menggambar Garis</h3>
+            <p>Teknik pertama yang perlu dikuasai adalah menggambar garis. Garis ini bisa berupa garis lurus, lengkung, atau garis terputus-putus.</p>
+        </div>
+        <div class="info-box">
+            <h3>2. Menggambar Bentuk Geometri</h3>
+            <p>Setelah menguasai garis, langkah selanjutnya adalah menggambar bentuk-bentuk dasar seperti lingkaran, persegi, dan segitiga.</p>
         </div>
     </div>
-    <script src='index.js'></script>
+
+    <div class="content-section" id="canvas-container">
+        <h2>Berlatih Menggambar di Canvas</h2>
+        <canvas id="myCanvas" width="500" height="500" style="border:1px solid #000;"></canvas>
+        <script>
+            var canvas = document.getElementById("myCanvas");
+            var ctx = canvas.getContext("2d");
+
+            // Gambar lingkaran
+            ctx.beginPath();
+            ctx.arc(100, 100, 50, 0, Math.PI * 2);
+            ctx.fillStyle = "red";
+            ctx.fill();
+
+            // Gambar persegi
+            ctx.beginPath();
+            ctx.rect(200, 200, 150, 150);
+            ctx.fillStyle = "blue";
+            ctx.fill();
+
+            // Gambar garis
+            ctx.beginPath();
+            ctx.moveTo(50, 50);
+            ctx.lineTo(200, 200);
+            ctx.strokeStyle = "green";
+            ctx.lineWidth = 5;
+            ctx.stroke();
+        </script>
+    </div>
+
+    <div class="content-section">
+        <h2>Formulir untuk Menghubungi Kami</h2>
+        <p>Jika kamu ingin belajar lebih banyak atau memiliki pertanyaan, silakan kirimkan pesan kepada kami melalui formulir berikut:</p>
+        <form action="submit_form" method="POST">
+            <label for="name">Nama:</label><br>
+            <input type="text" id="name" name="name" required><br><br>
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" required><br><br>
+            <label for="message">Pesan:</label><br>
+            <textarea id="message" name="message" rows="4" cols="50" required></textarea><br><br>
+            <input type="submit" value="Kirim Pesan">
+        </form>
+    </div>
+
+    <div class="content-section">
+        <h2>Tabel Alat Menggambar</h2>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Nama Alat</th>
+                    <th>Jenis</th>
+                    <th>Harga</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Pensil</td>
+                    <td>Alat Dasar</td>
+                    <td>Rp 10.000</td>
+                </tr>
+                <tr>
+                    <td>Cat Air</td>
+                    <td>Media Lukis</td>
+                    <td>Rp 50.000</td>
+                </tr>
+                <tr>
+                    <td>Kuas</td>
+                    <td>Alat Lukis</td>
+                    <td>Rp 15.000</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="content-section">
+        <h2>Link Berguna</h2>
+        <p>Berikut adalah beberapa link yang berguna untuk belajar lebih lanjut tentang menggambar dan melukis:</p>
+        <ul>
+            <li><a href="https://www.example.com" target="_blank">Belajar Menggambar Online</a></li>
+            <li><a href="https://www.example.com" target="_blank">Tutorial Melukis untuk Pemula</a></li>
+            <li><a href="https://www.example.com" target="_blank">Forum Diskusi Seniman</a></li>
+        </ul>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2025 Belajar Menggambar. Semua hak dilindungi.</p>
+    </div>
+
 </body>
 </html>
